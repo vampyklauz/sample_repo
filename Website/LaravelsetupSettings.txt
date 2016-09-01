@@ -1,0 +1,21 @@
+remove public on xampp
+
+edit C:\xampp\apache\conf httpd.conf
+ * Add -> Include "C:/xampp/alias/*" last line
+
+Creat Alias script
+ * create folder in xampp "alias"
+ 	-> Alias /FOLDER_NAME/ "c:/xampp/htdocs/FOLDER_NAME/public/"
+
+          <Directory "c:/xampp/htdocs/FOLDER_NAME/public/">
+		      Options Indexes FollowSymLinks MultiViews
+		      AllowOverride all
+		      Require all granted	
+          </Directory>
+
+Edit .htaccess in public folder
+ * Bellow RewriteEngine On
+ * Add -> RewriteBase /FOLDER_NAME
+
+ Edit .env
+  * Database
